@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <div class="containerr">
+        <div class="phone-section sections">
+            <div class="col-md-3">
+                <h3>Phone</h3>
+            </div>
+            <div class="col-md-3">
+                <img class="shopping-cart-imaget phone-size" src="images/phone.png" alt="">
+            </div>
+            <div class="col-md-3 count-iten d-flex">
+                <button onclick="productCount('phone', false);" class="product-plus">-</button>
+                <!-- <input type="number" name="" value="0" id="phone-count" class="product-count"> -->
+                <p class="product-count" id="phone-count">1</p>
+                <button onclick="productCount('phone', true)" class="product-minus">+</button>
+            </div>
+            <div class="col-md-3">
+                <h4>$ <span id="phone-price">300</span></h4>
+            </div>
+        </div>
+
+        <div class="case-section sections">
+            <div class="col-md-3">
+                <h3>Case</h3>
+            </div>
+            <div class="col-md-3">
+                <img class="shopping-cart-imaget case-size" src="images/case.png" alt="">
+            </div>
+            <div class="col-md-3 count-iten d-flex">
+                <button onclick="productCount('case', false)" class="product-plus">-</button>
+                <!-- <input type="number" name="" value="0" id="phone-count" class="product-count"> -->
+                <p class="product-count" id="case-count">1</p>
+                <button onclick="productCount('case', true)" class="product-minus">+</button>
+            </div>
+            <div class="col-md-3">
+                <h4>$ <span id="case-price">15</span></h4>
+            </div>
+        </div>
+
+        <div class="monitor-section sections">
+            <div class="col-md-3">
+                <h3>Monitor</h3>
+            </div>
+            <div class="col-md-3">
+                <img class="shopping-cart-imaget monitor-size" src="images/monitor.png" alt="">
+            </div>
+            <div class="col-md-3 count-iten d-flex">
+                <button onclick="productCount('monitor', false)" class="product-plus">-</button>
+                <!-- <input type="number" name="" value="0" id="phone-count" class="product-count"> -->
+                <p class="product-count" id="monitor-count">1</p>
+                <button onclick="productCount('monitor', true)" class="product-minus">+</button>
+            </div>
+            <div class="col-md-3">
+                <h4>$ <span id="monitor-price">80</span></h4>
+            </div>
+        </div>
+
+        <div class="mouse-section sections">
+            <div class="col-md-3">
+                <h3>Mouse</h3>
+            </div>
+            <div class="col-md-3">
+                <img class="shopping-cart-imaget mouse-size" src="images/mouse.png" alt="">
+            </div>
+            <div class="col-md-3 count-iten d-flex">
+                <button onclick="productCount('mouse', false)" class="product-plus">-</button>
+                <!-- <input type="number" name="" value="0" id="phone-count" class="product-count"> -->
+                <p class="product-count" id="mouse-count">1</p>
+                <button onclick="productCount('mouse', true)" class="product-minus">+</button>
+            </div>
+            <div class="col-md-3">
+                <h4>$ <span id="mouse-price">50</span></h4>
+            </div>
+        </div>
+
+        <div class="keyboard-section sections">
+            <div class="col-md-3">
+                <h3>Keyboard</h3>
+            </div>
+            <div class="col-md-3">
+                <img class="shopping-cart-imaget keyboard-size" src="images/keyboard.png" alt="">
+            </div>
+            <div class="col-md-3 count-iten d-flex">
+                <button onclick="productCount('keyboard', false)" class="product-plus">-</button>
+                <!-- <input type="number" name="" value="0" id="phone-count" class="product-count"> -->
+                <p class="product-count" id="keyboard-count">1</p>
+                <button onclick="productCount('keyboard', true)" class="product-minus">+</button>
+            </div>
+            <div class="col-md-3">
+                <h4>$ <span id="keyboard-price">80</span></h4>
+            </div>
+        </div>
+
+        <div class="keyboard-section sections">
+            <div class="col-sm-6 col-md-3">
+                <h3>Total</h3>
+            </div>
+            <div class="col-md-3 dna"></div>
+            <div class="col-md-3 dna"></div>
+            <div class="col-sm-6 col-md-3">
+                <h5><span>Total</span> $ <span id="total">525</span></h5>
+                <h5><span>Tax</span> $ <span id="tax">97</span></h5>
+                <h5><span>SubTotal</span> $ <span id="grand-total">604</span></h5>
+            </div>
+        </div>
+
+    </div>
+    <script>
+
+        function productCount(product, isIncrease){
+           const productNumber = document.getElementById(product + "-count");
+           const productCount = parseInt(productNumber.innerHTML);
+
+           const productSection = document.getElementById(product + "-price");
+           const productPrice = parseInt(productSection.innerHTML);
+
+           let unitPrice = 0;
+           
+           if(product == "phone"){
+                unitPrice = 300;
+            }
+            else if (product == "monitor"){
+                unitPrice = 80;
+            }
+            else if (product == "case"){
+                unitPrice = 15;
+            }
+            else if (product == "mouse"){
+                unitPrice = 50;
+            }
+            else if (product == "keyboard"){
+                unitPrice = 80;
+            }
+            if(isIncrease == true){
+                productNumber.innerHTML = productCount + 1;
+                productSection.innerHTML = (productCount + 1) * unitPrice;
+            }
+            else if (isIncrease == false && productCount > 1){
+                productNumber.innerHTML = productCount - 1;
+                productSection.innerHTML = (productCount - 1) * unitPrice;
+            }
+            calculateTotal ();
+        }
+
+        function calculateTotal (){
+            const products = ["phone", "monitor", "case", "mouse", "keyboard"];
+            let total = 0;
+
+            for (const product of products) {
+                const productSection = document.getElementById(product + "-price");
+                const productPrice = parseInt(productSection.innerHTML);
+                total += productPrice;
+            }
+            const totalElement = document.getElementById("total");
+            totalElement.innerHTML = total;
+
+            const tax = total * (15 / 100);
+            document.getElementById("tax").innerHTML = Math.round(tax);
+            document.getElementById("grand-total").innerHTML = Math.round(tax + total);
+            console.log(tax);
+        }
+    </script>
+</body>
+</html>
